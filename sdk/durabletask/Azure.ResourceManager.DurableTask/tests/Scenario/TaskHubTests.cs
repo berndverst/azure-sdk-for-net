@@ -41,19 +41,19 @@ namespace Azure.ResourceManager.DurableTask.Tests.Scenario
             SchedulerResource scheduler = longRunningOperation.Value;
             TaskHubCollection collection = scheduler.GetTaskHubs();
 
-            await collection.CreateOrUpdateAsync(WaitUntil.Completed, "MyTaskHub", new TaskHubData());
+            await collection.CreateOrUpdateAsync(WaitUntil.Completed, "MyHub", new TaskHubData());
 
-            TaskHubResource taskHub = await scheduler.GetTaskHubAsync("MyHub");
-            Assert.True(taskHub.HasData);
-            Assert.True(taskHub.Data.Properties.DashboardUri.Host.ToLower().Contains(".io"));
-            Assert.AreEqual("MyHub", taskHub.Data.Name);
+            TaskHubResource hub = await scheduler.GetTaskHubAsync("MyHub");
+            Assert.True(hub.HasData);
+            Assert.True(hub.Data.Properties.DashboardUri.Host.ToLower().Contains("durabletask.io"));
+            Assert.AreEqual("MyHub", hub.Data.Name);
 
             // The list endpoint should also return the newly created hub
             TaskHubResource listHub = await collection.GetAllAsync().FirstOrDefaultAsync(t => t.Data.Name == "MyHub");
             Assert.NotNull(listHub);
-            Assert.AreEqual(taskHub.Data.Name, listHub.Data.Name);
+            Assert.AreEqual(hub.Data.Name, listHub.Data.Name);
 
-            await taskHub.DeleteAsync(WaitUntil.Completed);
+            await hub.DeleteAsync(WaitUntil.Completed);
 
             try
             {
