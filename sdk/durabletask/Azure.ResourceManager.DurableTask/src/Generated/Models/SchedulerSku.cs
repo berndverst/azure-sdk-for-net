@@ -7,12 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Azure.ResourceManager.DurableTask.Models
 {
-    /// <summary> The response of a Scheduler list operation. </summary>
-    internal partial class SchedulerListResult
+    /// <summary> The SKU (Stock Keeping Unit) assigned to this durable task scheduler. </summary>
+    public partial class SchedulerSku
     {
         /// <summary>
         /// Keeps track of any properties unknown to the library.
@@ -46,35 +45,36 @@ namespace Azure.ResourceManager.DurableTask.Models
         /// </summary>
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
-        /// <summary> Initializes a new instance of <see cref="SchedulerListResult"/>. </summary>
-        /// <param name="value"> The Scheduler items on this page. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
-        internal SchedulerListResult(IEnumerable<SchedulerData> value)
+        /// <summary> Initializes a new instance of <see cref="SchedulerSku"/>. </summary>
+        /// <param name="name"> The name of the SKU. </param>
+        public SchedulerSku(SchedulerSkuName name)
         {
-            Argument.AssertNotNull(value, nameof(value));
-
-            Value = value.ToList();
+            Name = name;
         }
 
-        /// <summary> Initializes a new instance of <see cref="SchedulerListResult"/>. </summary>
-        /// <param name="value"> The Scheduler items on this page. </param>
-        /// <param name="nextLink"> The link to the next page of items. </param>
+        /// <summary> Initializes a new instance of <see cref="SchedulerSku"/>. </summary>
+        /// <param name="name"> The name of the SKU. </param>
+        /// <param name="capacity"> The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy. </param>
+        /// <param name="redundancyState"> Indicates whether the current SKU configuration is zone redundant. </param>
         /// <param name="serializedAdditionalRawData"> Keeps track of any properties unknown to the library. </param>
-        internal SchedulerListResult(IReadOnlyList<SchedulerData> value, Uri nextLink, IDictionary<string, BinaryData> serializedAdditionalRawData)
+        internal SchedulerSku(SchedulerSkuName name, int? capacity, SchedulerRedundancyState? redundancyState, IDictionary<string, BinaryData> serializedAdditionalRawData)
         {
-            Value = value;
-            NextLink = nextLink;
+            Name = name;
+            Capacity = capacity;
+            RedundancyState = redundancyState;
             _serializedAdditionalRawData = serializedAdditionalRawData;
         }
 
-        /// <summary> Initializes a new instance of <see cref="SchedulerListResult"/> for deserialization. </summary>
-        internal SchedulerListResult()
+        /// <summary> Initializes a new instance of <see cref="SchedulerSku"/> for deserialization. </summary>
+        internal SchedulerSku()
         {
         }
 
-        /// <summary> The Scheduler items on this page. </summary>
-        public IReadOnlyList<SchedulerData> Value { get; }
-        /// <summary> The link to the next page of items. </summary>
-        public Uri NextLink { get; }
+        /// <summary> The name of the SKU. </summary>
+        public SchedulerSkuName Name { get; set; }
+        /// <summary> The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy. </summary>
+        public int? Capacity { get; set; }
+        /// <summary> Indicates whether the current SKU configuration is zone redundant. </summary>
+        public SchedulerRedundancyState? RedundancyState { get; }
     }
 }
