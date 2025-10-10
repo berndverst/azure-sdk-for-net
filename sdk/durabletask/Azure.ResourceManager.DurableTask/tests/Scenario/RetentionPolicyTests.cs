@@ -13,7 +13,7 @@ using NUnit.Framework;
 
 namespace Azure.ResourceManager.DurableTask.Tests.Scenario
 {
-    public class RetentionPolicyTests : DurableTaskSchedulerManagementTestBase
+    public class RetentionPolicyTests : DurableTaskManagementTestBase
     {
         public RetentionPolicyTests(bool isAsync) : base(isAsync)
         {

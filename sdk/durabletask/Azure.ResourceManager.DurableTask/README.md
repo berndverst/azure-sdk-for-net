@@ -1,6 +1,6 @@
-# Microsoft Azure Durable Task Scheduler management client library for .NET
+# Microsoft Azure DurableTask management client library for .NET
 
-The Durable Task Scheduler is a fully managed backend for Azure Durable Functions that enhances performance, reliability, and ease of monitoring of stateful orchestrations.
+**[Describe the service briefly first.]**
 
 This library follows the [new Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and provides many core capabilities:
 
@@ -14,10 +14,10 @@ This library follows the [new Azure SDK guidelines](https://azure.github.io/azur
 
 ### Install the package
 
-Install the Microsoft Azure Durable Task Scheduler management library for .NET with [NuGet](https://www.nuget.org/):
+Install the Microsoft Azure DurableTask management library for .NET with [NuGet](https://www.nuget.org/):
 
 ```dotnetcli
-dotnet add package Azure.ResourceManager.DurableTask
+dotnet add package Azure.ResourceManager.DurableTask --prerelease
 ```
 
 ### Prerequisites

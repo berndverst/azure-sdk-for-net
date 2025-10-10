@@ -5,7 +5,7 @@ using Azure.Core.TestFramework;
 
 namespace Azure.ResourceManager.DurableTask.Tests
 {
-    public class DurableTaskSchedulerManagementTestEnvironment : TestEnvironment
+    public class DurableTaskManagementTestEnvironment : TestEnvironment
     {
     }
 }

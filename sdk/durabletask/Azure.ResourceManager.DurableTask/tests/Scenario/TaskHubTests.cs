@@ -12,7 +12,7 @@ using NUnit.Framework;
 
 namespace Azure.ResourceManager.DurableTask.Tests.Scenario
 {
-    public class TaskHubTests : DurableTaskSchedulerManagementTestBase
+    public class TaskHubTests : DurableTaskManagementTestBase
     {
         public TaskHubTests(bool isAsync) : base(isAsync)
         {

@@ -1,21 +1,8 @@
 # Release History
 
-## 1.0.0 (2025-10-10)
+## 1.0.0-beta.1 (Unreleased)
 
-First GA release of the Durable Task Scheduler management SDK
 
-### Breaking Changes
-
-- All class names dropped the `DurableTask` name prefix
-- Renamed `DurableTaskResourceRedundancyState` to `SchedulerRedundancyState`
-
-### Other Changes
-
-- The `SchedulerSkuName` class now provides constants for possible Sku names
-
-## 1.0.0-beta.1 (2025-04-24)
-
-Initial release of the Durable Task Scheduler management SDK
 
 ### Features Added
 

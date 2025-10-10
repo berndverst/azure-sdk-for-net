@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace Azure.ResourceManager.DurableTask.Tests
 {
-    public class DurableTaskSchedulerManagementTestBase : ManagementRecordedTestBase<DurableTaskSchedulerManagementTestEnvironment>
+    public class DurableTaskManagementTestBase : ManagementRecordedTestBase<DurableTaskManagementTestEnvironment>
     {
         protected ArmClient Client { get; private set; }
         protected SubscriptionResource DefaultSubscription { get; private set; }
 
-        protected DurableTaskSchedulerManagementTestBase(bool isAsync, RecordedTestMode mode)
+        protected DurableTaskManagementTestBase(bool isAsync, RecordedTestMode mode)
         : base(isAsync, mode)
         {
         }
 
-        protected DurableTaskSchedulerManagementTestBase(bool isAsync)
+        protected DurableTaskManagementTestBase(bool isAsync)
             : base(isAsync)
         {
         }

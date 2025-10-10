@@ -15,7 +15,7 @@ using NUnit.Framework;
 
 namespace Azure.ResourceManager.DurableTask.Tests.Scenario;
 
-public class SchedulerTests : DurableTaskSchedulerManagementTestBase
+public class SchedulerTests : DurableTaskManagementTestBase
 {
     // IP address allowlist test constants
     private const string IpRange1 = "12.14.16.18/20";
